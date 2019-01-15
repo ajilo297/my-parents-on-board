@@ -15,6 +15,7 @@
 		2ACFFDBA21EE29910001DF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDB821EE29910001DF77 /* LaunchScreen.storyboard */; };
 		2ACFFDC521EE29910001DF77 /* MyParentsOnBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDC421EE29910001DF77 /* MyParentsOnBoardTests.swift */; };
 		2ACFFDD021EE29910001DF77 /* MyParentsOnBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDCF21EE29910001DF77 /* MyParentsOnBoardUITests.swift */; };
+		2ACFFDE021EE32C80001DF77 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDDF21EE32C80001DF77 /* .travis.yml */; };
 		2B21A8CFB3C6A40E10E6C8DD /* Pods_MyParentsOnBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */; };
 		C5BC9E8E8EA7EC7CBA8B6588 /* Pods_MyParentsOnBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */; };
 		D237B9FA29877087D6B0E584 /* Pods_MyParentsOnBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */; };
@@ -54,6 +55,7 @@
 		2ACFFDCB21EE29910001DF77 /* MyParentsOnBoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyParentsOnBoardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACFFDCF21EE29910001DF77 /* MyParentsOnBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyParentsOnBoardUITests.swift; sourceTree = "<group>"; };
 		2ACFFDD121EE29910001DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ACFFDDF21EE32C80001DF77 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		3BDECCC9A3960B1B865D0E7F /* Pods-MyParentsOnBoardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardUITests/Pods-MyParentsOnBoardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B0612BD35252E3F196C5B3 /* Pods-MyParentsOnBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		2ACFFDA021EE298F0001DF77 = {
 			isa = PBXGroup;
 			children = (
+				2ACFFDDF21EE32C80001DF77 /* .travis.yml */,
 				2ACFFDAB21EE298F0001DF77 /* MyParentsOnBoard */,
 				2ACFFDC321EE29910001DF77 /* MyParentsOnBoardTests */,
 				2ACFFDCE21EE29910001DF77 /* MyParentsOnBoardUITests */,
@@ -277,6 +280,7 @@
 			files = (
 				2ACFFDBA21EE29910001DF77 /* LaunchScreen.storyboard in Resources */,
 				2ACFFDB721EE29910001DF77 /* Assets.xcassets in Resources */,
+				2ACFFDE021EE32C80001DF77 /* .travis.yml in Resources */,
 				2ACFFDB221EE298F0001DF77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

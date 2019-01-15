@@ -3,7 +3,7 @@
 //  MyParentsOnBoard
 //
 //  Created by ATS on 15/01/19.
-//  Copyright © 2019 ATS. All rights reserved.
+//  Copyright © 2019 Ajil. All rights reserved.
 //
 
 import UIKit
