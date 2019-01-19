@@ -12,7 +12,7 @@ public class HttpManager {
     
     private static let baseUrl = "http://app.myparentsonboard.com/mpob-cloud/app/mobile/login"
     
-    private static func makeGetRequest(url: URL, header: Dictionary<String, String>?, callback: (Data?, URLResponse?, Error?) -> Void) {
+    private static func makeGetRequest(url: URL, header: Dictionary<String, String>?, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         if let header = header {
@@ -21,12 +21,9 @@ public class HttpManager {
             }
         }
         
-        let session = URLSession.shared
-        let task = session.dataTask(with: urlRequest, completionHandler: {data, response, error in
-            
+        runHttpSession(urlRequest: urlRequest, callback: {(data, response, error) in
+            callback(data, response, error)
         })
-        
-        task.resume()
     }
     
     private static func makePostRequest(url: URL, header: Dictionary<String, String>?, body: Data, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
@@ -39,8 +36,15 @@ public class HttpManager {
         }
         urlRequest.httpBody = body
         
+        runHttpSession(urlRequest: urlRequest, callback: {(data, response, error) in
+            callback(data, response, error)
+        })
+    }
+    
+    private static func runHttpSession(urlRequest: URLRequest, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        
         let session = URLSession.shared
-        let task = session.dataTask(with: url, completionHandler: {(data, response, error) in
+        let task = session.dataTask(with: urlRequest, completionHandler: {data, response, error in
             callback(data, response, error)
         })
         
