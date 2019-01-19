@@ -32,7 +32,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: - Actions
-    @IBAction func onLoginButtonPressed(sender: UIButton) {
+    @IBAction public func onLoginButtonPressed(sender: UIButton) {
+        guard let emailId = emailTextField.text else {
+            return
+        }
+        guard let password = passwordTextField.text else {
+            return
+        }
+        
+        login(emailId: emailId, password: password)
+    }
+    
+    private func login(emailId: String, password: String) {
         guard let emailId = emailTextField.text else {
             return
         }
@@ -42,40 +53,43 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let loadingDialog = showLoadingAlert(in: self, title: nil, message: "Loading")
         
-        HttpManager.loginWith(emailId: emailId, password: password, callback: {data, response, error in
+        HttpManager.loginWith(emailId: emailId, password: password, callback: {
+            (data, response, error) in
             loadingDialog.dismiss(animated: true, completion: nil)
-            MyParentsOnBoard.show(key: "DATA: ", value: data)
-            MyParentsOnBoard.show(key: "RESPONSE: ", value: response)
-            MyParentsOnBoard.show(key: "ERROR: ", value: error)
-            
-            guard let data = data else {
-                if let error = error {
-                    showAlertDialog(in: self, title: "Error", message: "\(error.localizedDescription)")
-                    return
-                } else {
-                    showAlertDialog(in: self, title: "Error", message: "Did not receive data")
-                    return
-                }
-            }
-            
-            guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
-                if let error = error {
-                    showAlertDialog(in: self, title: "Error", message: "\(error.localizedDescription)")
-                } else {
-                    showAlertDialog(in: self, title: "Error", message: "Unknown error")
-                }
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
-                
-                print(json)
-            } catch let e as NSError {
-                showAlertDialog(in: self, title: "Error", message: "Invalid response\n\(e.localizedDescription)")
-            }
-            
+            self.handleLoginResponse(data: data, response: response, error: error)
         })
+    }
+    
+    private func handleLoginResponse(data: Data?, response: URLResponse?, error: Error?) {
+        if let error = error {
+            self.showAlert(title: "Error", message: "\(error.localizedDescription)")
+            return
+        }
+        guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
+            self.showAlert(title: "Error", message: "Unknown Error")
+            return
+        }
+        guard  let data = data else {
+            self.showAlert(title: "Error", message: "Invalid response data")
+            return
+        }
+        self.parseJsonResponse(data: data)
+    }
+    
+    private func showAlert(title: String?, message: String?) {
+        MyParentsOnBoard.showAlertDialog(in: self, title: title, message: message)
+    }
+    
+    private func parseJsonResponse(data: Data) {
+        var jsonData: Data
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+        } catch let e as NSError {
+            self.showAlert(title: "Error", message: "Caught error while parsing\n\(e.localizedDescription)")
+            return
+        }
+        
+        print(jsonData)
     }
 }
 
