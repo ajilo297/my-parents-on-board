@@ -91,3 +91,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+public func show(key: String, value: Any?) {
+    if let value = value {
+        print("\(key.uppercased()): \(value)")
+    } else {
+        print("No value for \(key.uppercased())")
+    }
+}
+
+public func showLoadingAlert(in vc: UIViewController, title: String?, message: String) -> UIAlertController {
+    let loadingAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+    loadingIndicator.hidesWhenStopped = true
+    loadingIndicator.style = UIActivityIndicatorView.Style.gray
+    loadingIndicator.startAnimating();
+    loadingAlert.view.addSubview(loadingIndicator)
+    
+    vc.present(loadingAlert, animated: true, completion: nil)
+    
+    return loadingAlert
+}
+
+public func showAlertDialog(in vc: UIViewController, title: String?, message: String?) {
+    DispatchQueue.main.async {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        vc.present(alert, animated: true, completion: nil)
+    }
+}
