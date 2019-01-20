@@ -25,6 +25,7 @@
 		2ACFFDF121F404B50001DF77 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDF021F404B50001DF77 /* ErrorModel.swift */; };
 		2ACFFDF321F4052B0001DF77 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDF221F4052B0001DF77 /* ErrorManager.swift */; };
 		2B21A8CFB3C6A40E10E6C8DD /* Pods_MyParentsOnBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */; };
+		B23AE73F21F471B20028FEA0 /* CoredataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AE73E21F471B20028FEA0 /* CoredataManager.swift */; };
 		C5BC9E8E8EA7EC7CBA8B6588 /* Pods_MyParentsOnBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */; };
 		D237B9FA29877087D6B0E584 /* Pods_MyParentsOnBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1EA59B9D59C0E4172FD27B /* Pods-MyParentsOnBoardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardUITests/Pods-MyParentsOnBoardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B23AE73E21F471B20028FEA0 /* CoredataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoredataManager.swift; path = ../../../CoredataManager.swift; sourceTree = "<group>"; };
 		E4B2076164E1062EC9E20438 /* Pods-MyParentsOnBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2ACFFDE521F102610001DF77 /* HttpManager.swift */,
+				B23AE73E21F471B20028FEA0 /* CoredataManager.swift */,
 				2ACFFDF221F4052B0001DF77 /* ErrorManager.swift */,
 			);
 			path = Utils;
@@ -425,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ACFFDE921F3FE1E0001DF77 /* StreamModel.swift in Sources */,
+				B23AE73F21F471B20028FEA0 /* CoredataManager.swift in Sources */,
 				2ACFFDAF21EE298F0001DF77 /* LoginViewController.swift in Sources */,
 				2ACFFDAD21EE298F0001DF77 /* AppDelegate.swift in Sources */,
 				2ACFFDEB21F400100001DF77 /* VodModel.swift in Sources */,
