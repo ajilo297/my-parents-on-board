@@ -52,12 +52,12 @@ extension LiveVideoViewController: UITableViewDelegate, UITableViewDataSource  {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
         }
         
-        guard let imageUrl = URL(string: streamData.thumbUrl) else {
+        guard let imageUrl = URL(string: "https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg") else {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
         }
         
         cell.labelText.text = streamData.cameraName
-        cell.thumbnailImage.kf.setImage(with: imageUrl)
+        cell.thumbnailImage.kf.setImage(with: imageUrl, placeholder: UIImage(named: "placeholderImage"))
         
         return cell
     }
