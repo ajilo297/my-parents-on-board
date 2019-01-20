@@ -26,6 +26,8 @@
 		2ACFFDF321F4052B0001DF77 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDF221F4052B0001DF77 /* ErrorManager.swift */; };
 		2ACFFDF521F4116F0001DF77 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDF421F4116F0001DF77 /* HomeViewController.swift */; };
 		2ACFFDFC21F42CDD0001DF77 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDFB21F42CDD0001DF77 /* UserDataModel.swift */; };
+		2ACFFDFE21F439430001DF77 /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDFD21F439430001DF77 /* LiveVideoViewController.swift */; };
+		2ACFFE0121F43A940001DF77 /* LiveVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFE0021F43A940001DF77 /* LiveVideoTableViewCell.swift */; };
 		2B21A8CFB3C6A40E10E6C8DD /* Pods_MyParentsOnBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */; };
 		C5BC9E8E8EA7EC7CBA8B6588 /* Pods_MyParentsOnBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */; };
 		D237B9FA29877087D6B0E584 /* Pods_MyParentsOnBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */; };
@@ -76,6 +78,8 @@
 		2ACFFDF221F4052B0001DF77 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		2ACFFDF421F4116F0001DF77 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2ACFFDFB21F42CDD0001DF77 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		2ACFFDFD21F439430001DF77 /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
+		2ACFFE0021F43A940001DF77 /* LiveVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoTableViewCell.swift; sourceTree = "<group>"; };
 		3BDECCC9A3960B1B865D0E7F /* Pods-MyParentsOnBoardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardUITests/Pods-MyParentsOnBoardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B0612BD35252E3F196C5B3 /* Pods-MyParentsOnBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		2ACFFDAB21EE298F0001DF77 /* MyParentsOnBoard */ = {
 			isa = PBXGroup;
 			children = (
+				2ACFFDFF21F43A710001DF77 /* Views */,
 				2ACFFDE721F3FDCE0001DF77 /* Models */,
 				2ACFFDE421F101EB0001DF77 /* Utils */,
 				2ACFFDE321F101AE0001DF77 /* Pages */,
@@ -186,6 +191,7 @@
 			children = (
 				2ACFFDAE21EE298F0001DF77 /* LoginViewController.swift */,
 				2ACFFDF421F4116F0001DF77 /* HomeViewController.swift */,
+				2ACFFDFD21F439430001DF77 /* LiveVideoViewController.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -212,6 +218,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2ACFFDFF21F43A710001DF77 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2ACFFE0021F43A940001DF77 /* LiveVideoTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CE2C340D75CC9072D133ABD7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +250,7 @@
 				2ACFFDA521EE298F0001DF77 /* Sources */,
 				2ACFFDA621EE298F0001DF77 /* Frameworks */,
 				2ACFFDA721EE298F0001DF77 /* Resources */,
+				C960412D726C9BCA6B47EF38 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -423,6 +438,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C960412D726C9BCA6B47EF38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyParentsOnBoard/Pods-MyParentsOnBoard-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyParentsOnBoard/Pods-MyParentsOnBoard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -433,7 +470,9 @@
 				2ACFFDFC21F42CDD0001DF77 /* UserDataModel.swift in Sources */,
 				2ACFFDE921F3FE1E0001DF77 /* StreamModel.swift in Sources */,
 				2ACFFDAF21EE298F0001DF77 /* LoginViewController.swift in Sources */,
+				2ACFFDFE21F439430001DF77 /* LiveVideoViewController.swift in Sources */,
 				2ACFFDAD21EE298F0001DF77 /* AppDelegate.swift in Sources */,
+				2ACFFE0121F43A940001DF77 /* LiveVideoTableViewCell.swift in Sources */,
 				2ACFFDEB21F400100001DF77 /* VodModel.swift in Sources */,
 				2ACFFDF321F4052B0001DF77 /* ErrorManager.swift in Sources */,
 				2ACFFDB521EE298F0001DF77 /* MyParentsOnBoard.xcdatamodeld in Sources */,

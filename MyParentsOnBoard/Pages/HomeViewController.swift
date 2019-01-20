@@ -13,4 +13,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction public func onLiveVideoButtonClick(sender: UIButton) {
+        performSegue(withIdentifier: "home_to_live_video", sender: self)
+    }
 }

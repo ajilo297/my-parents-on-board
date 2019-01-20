@@ -9,6 +9,6 @@
 import Foundation
 
 public class ErrorManager {
-    public static let urlNotParsed = ErrorModel(message: "Unable to parse URL", code: 14)
-    public static let jsonNotParsed = ErrorModel(message: "Unable to parse URL", code: 14)
+    public static let urlNotParsed = ErrorModel(message: "Unable to parse URL", code: 140)
+    public static let jsonNotParsed = ErrorModel(message: "Unable to parse JSON", code: 141)
 }
