@@ -13,11 +13,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    var appDelegate: AppDelegate!
+
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -81,11 +83,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.showAlert(title: "Error", message: "Caught error while parsing\n\(e.localizedDescription)")
             return
         }
-        
+      
         print(jsonData)
+        let object = StreamModel.init(id: "data", cameraUrl: "sdfs", thumbUrl: "df", streamType: "sdfg", cameraName: "jsdfh")
+        //(id: "data", cameraUrl: "sdfs", thumbUrl: "df", streamType: "sdfg", cameraName: "jsdfh")
+        CoredataManager.insertStreamData(appDelegate, object) // <- this line ano?
+
     }
     
     private func showAlert(title: String?, message: String?) {
         MyParentsOnBoard.showAlertDialog(in: self, title: title, message: message)
     }
+    
 }

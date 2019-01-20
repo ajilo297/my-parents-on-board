@@ -1,4 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G4015" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Child" representedClassName="Child" syncable="YES" codeGenerationType="class">
+        <attribute name="childId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictureUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Streamdata" representedClassName="Streamdata" syncable="YES" codeGenerationType="class">
+        <attribute name="cameraName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cameraUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streamType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Teachers" representedClassName="Teachers" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="biography" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="certifications" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="education" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictureUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacherId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="workHours" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="VodData" representedClassName="VodData" syncable="YES" codeGenerationType="class">
+        <attribute name="filebaseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vodName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vodType" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Streamdata" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="VodData" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Teachers" positionX="-36" positionY="9" width="128" height="240"/>
+        <element name="Child" positionX="-18" positionY="27" width="128" height="105"/>
+    </elements>
 </model>
