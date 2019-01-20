@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LiveVideoTableViewCell: UITableViewCell {
+class VideoTableViewCell: UITableViewCell {
     
     @IBOutlet public weak var thumbnailImage: UIImageView!
     @IBOutlet public weak var labelText: UILabel!

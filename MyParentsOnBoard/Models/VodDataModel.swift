@@ -8,18 +8,13 @@
 
 import Foundation
 
-public class VodDataModel: DataModel {
-    public let videoUrl: String
+public class VodDataModel: VideoDataModel {
     public let filebaseName: String
-    public let thumbnailUrl: String
-    public let vodName: String
     public let vodType: String
     
     public init(videoUrl: String, filebaseName: String, thumbnailUrl: String, vodName: String, vodType: String) {
-        self.videoUrl = videoUrl
         self.filebaseName = filebaseName
-        self.thumbnailUrl = thumbnailUrl
-        self.vodName = vodName
         self.vodType = vodType
+        super.init(thumbnailUrl: thumbnailUrl, videoUrl: videoUrl, videoName: vodName)
     }
 }

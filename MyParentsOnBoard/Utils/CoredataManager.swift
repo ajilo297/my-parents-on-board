@@ -43,10 +43,10 @@ public class CoredataManager{
         let urls = NSManagedObject(entity: entity!, insertInto: context)
         
         urls.setValue(streamModel.id, forKey: "id")
-        urls.setValue(streamModel.cameraUrl, forKey: "cameraUrl")
-        urls.setValue(streamModel.cameraName, forKey: "cameraName")
+        urls.setValue(streamModel.videoUrl, forKey: "cameraUrl")
+        urls.setValue(streamModel.videoName, forKey: "cameraName")
         urls.setValue(streamModel.streamType, forKey: "streamType")
-        urls.setValue(streamModel.thumbUrl, forKey: "thumbUrl")
+        urls.setValue(streamModel.thumbnailUrl, forKey: "thumbUrl")
         
         do {
             try context.save()
@@ -64,7 +64,7 @@ public class CoredataManager{
         urls.setValue(vodmodel.videoUrl, forKey: "videoUrl")
         urls.setValue(vodmodel.filebaseName, forKey: "filebaseName")
         urls.setValue(vodmodel.thumbnailUrl, forKey: "thumbnailUrl")
-        urls.setValue(vodmodel.vodName, forKey: "vodName")
+        urls.setValue(vodmodel.videoName, forKey: "vodName")
         urls.setValue(vodmodel.vodType, forKey: "vodType")
         
         do {

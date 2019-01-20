@@ -180,7 +180,7 @@
         <!--Live Video-->
         <scene sceneID="64c-CY-onc">
             <objects>
-                <viewController title="Live Video" id="F2w-6Q-3cl" customClass="LiveVideoViewController" customModule="MyParentsOnBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Live Video" id="F2w-6Q-3cl" customClass="VideoTableViewController" customModule="MyParentsOnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5LK-OI-bk8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="live_video_cell" rowHeight="209" id="GgC-W5-Cnm" customClass="LiveVideoTableViewCell" customModule="MyParentsOnBoard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="live_video_cell" rowHeight="209" id="GgC-W5-Cnm" customClass="VideoTableViewCell" customModule="MyParentsOnBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="209"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GgC-W5-Cnm" id="Y4b-Kd-kGN">
@@ -238,7 +238,7 @@
                         <viewLayoutGuide key="safeArea" id="jUp-UV-cAl"/>
                     </view>
                     <connections>
-                        <outlet property="liveVideoTableView" destination="6mI-wx-rwE" id="ovr-qX-jPQ"/>
+                        <outlet property="videoTableView" destination="6mI-wx-rwE" id="ovr-qX-jPQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMP-a4-nBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
