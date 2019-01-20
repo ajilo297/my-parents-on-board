@@ -55,10 +55,12 @@ public class HttpManager {
         let userDictionary = ["userName": "\(emailId)", "password": "\(password)"]
         
         guard let url = URL(string: baseUrl) else {
+            callback(nil, nil, NSError(domain: ErrorManager.urlNotParsed.message , code: ErrorManager.urlNotParsed.code, userInfo: nil))
             return
         }
         
         guard let userJsonData = try? JSONSerialization.data(withJSONObject: userDictionary, options: .prettyPrinted) else {
+            callback(nil, nil, NSError(domain: ErrorManager.jsonNotParsed.message, code: ErrorManager.jsonNotParsed.code, userInfo: nil))
             return
         }
 
