@@ -44,12 +44,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func login(emailId: String, password: String) {
-        guard let emailId = emailTextField.text else {
-            return
-        }
-        guard let password = passwordTextField.text else {
-            return
-        }
         
         let loadingDialog = showLoadingAlert(in: self, title: nil, message: "Loading")
         
@@ -73,14 +67,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.showAlert(title: "Error", message: "Invalid response data")
             return
         }
-        self.parseJsonResponse(data: data)
+        self.getJsonFromData(data: data)
     }
     
-    private func showAlert(title: String?, message: String?) {
-        MyParentsOnBoard.showAlertDialog(in: self, title: title, message: message)
-    }
-    
-    private func parseJsonResponse(data: Data) {
+    private func getJsonFromData(data: Data) {
         var jsonData: Data
         do {
             jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
@@ -91,5 +81,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         print(jsonData)
     }
+    
+    private func showAlert(title: String?, message: String?) {
+        MyParentsOnBoard.showAlertDialog(in: self, title: title, message: message)
+    }
 }
-
