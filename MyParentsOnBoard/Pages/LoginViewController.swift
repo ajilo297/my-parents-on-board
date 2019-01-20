@@ -13,12 +13,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    var appDelegate: AppDelegate!
 
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate = UIApplication.shared.delegate as! AppDelegate
 
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -50,6 +48,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func login(emailId: String, password: String) {
         
+        performSegue(withIdentifier: "login_to_navigation", sender: self)
+        
         let loadingDialog = showLoadingAlert(in: self, title: nil, message: "Loading")
         
         HttpManager.loginWith(emailId: emailId, password: password, callback: {
@@ -68,27 +68,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.showAlert(title: "Error", message: "Unknown Error")
             return
         }
-        guard  let data = data else {
+        guard  let _ = data else {
             self.showAlert(title: "Error", message: "Invalid response data")
             return
         }
-        self.getJsonFromData(data: data)
+        self.getJsonFromData(response: response)
     }
     
-    private func getJsonFromData(data: Data) {
-        var jsonData: Data
-        do {
-            jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
-        } catch let e as NSError {
-            self.showAlert(title: "Error", message: "Caught error while parsing\n\(e.localizedDescription)")
+    private func getJsonFromData(response: HTTPURLResponse) {
+        // Do something here
+    }
+    
+    private func saveDataModel(dataModel: DataModel) {
+        guard  let appDelegate = getApplicationDelegate() else {
+            showAlert(title: "Error", message: "Unable to get Application Delegate")
             return
         }
-      
-        print(jsonData)
-        let object = StreamModel.init(id: "data", cameraUrl: "sdfs", thumbUrl: "df", streamType: "sdfg", cameraName: "jsdfh")
-        //(id: "data", cameraUrl: "sdfs", thumbUrl: "df", streamType: "sdfg", cameraName: "jsdfh")
-        CoredataManager.insertStreamData(appDelegate, object) // <- this line ano?
-
+        
+        CoredataManager.insertDataModel(context: appDelegate.persistentContainer.viewContext, dataModel: dataModel)
+    }
+    
+    private func getApplicationDelegate() -> AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
     }
     
     private func showAlert(title: String?, message: String?) {

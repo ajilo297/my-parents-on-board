@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class VodModel {
+public class VodDataModel: DataModel {
     public let videoUrl: String
     public let filebaseName: String
     public let thumbnailUrl: String

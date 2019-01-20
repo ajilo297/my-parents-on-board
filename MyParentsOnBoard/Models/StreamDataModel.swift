@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StreamModel {
+public class StreamDataModel: DataModel {
     public let id: String
     public let cameraUrl: String
     public let thumbUrl: String

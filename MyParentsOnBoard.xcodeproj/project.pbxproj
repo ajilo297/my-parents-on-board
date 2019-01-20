@@ -18,8 +18,8 @@
 		2ACFFDE021EE32C80001DF77 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDDF21EE32C80001DF77 /* .travis.yml */; };
 		2ACFFDE221EE4F410001DF77 /* sonar-project.properties in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDE121EE4F410001DF77 /* sonar-project.properties */; };
 		2ACFFDE621F102610001DF77 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDE521F102610001DF77 /* HttpManager.swift */; };
-		2ACFFDE921F3FE1E0001DF77 /* StreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDE821F3FE1E0001DF77 /* StreamModel.swift */; };
-		2ACFFDEB21F400100001DF77 /* VodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDEA21F400100001DF77 /* VodModel.swift */; };
+		2ACFFDE921F3FE1E0001DF77 /* StreamDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDE821F3FE1E0001DF77 /* StreamDataModel.swift */; };
+		2ACFFDEB21F400100001DF77 /* VodDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDEA21F400100001DF77 /* VodDataModel.swift */; };
 		2ACFFDED21F401400001DF77 /* TeacherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDEC21F401400001DF77 /* TeacherDataModel.swift */; };
 		2ACFFDEF21F403260001DF77 /* ChildDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDEE21F403260001DF77 /* ChildDataModel.swift */; };
 		2ACFFDF121F404B50001DF77 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDF021F404B50001DF77 /* ErrorModel.swift */; };
@@ -28,8 +28,9 @@
 		2ACFFDFC21F42CDD0001DF77 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDFB21F42CDD0001DF77 /* UserDataModel.swift */; };
 		2ACFFDFE21F439430001DF77 /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDFD21F439430001DF77 /* LiveVideoViewController.swift */; };
 		2ACFFE0121F43A940001DF77 /* LiveVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFE0021F43A940001DF77 /* LiveVideoTableViewCell.swift */; };
+		2ACFFE0321F4D1180001DF77 /* CoredataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFE0221F4D1180001DF77 /* CoredataManager.swift */; };
+		2ACFFE0521F4DC8B0001DF77 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFE0421F4DC8B0001DF77 /* DataModel.swift */; };
 		2B21A8CFB3C6A40E10E6C8DD /* Pods_MyParentsOnBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */; };
-		B23AE73F21F471B20028FEA0 /* CoredataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AE73E21F471B20028FEA0 /* CoredataManager.swift */; };
 		C5BC9E8E8EA7EC7CBA8B6588 /* Pods_MyParentsOnBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */; };
 		D237B9FA29877087D6B0E584 /* Pods_MyParentsOnBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,8 +72,8 @@
 		2ACFFDDF21EE32C80001DF77 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		2ACFFDE121EE4F410001DF77 /* sonar-project.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sonar-project.properties"; sourceTree = "<group>"; };
 		2ACFFDE521F102610001DF77 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
-		2ACFFDE821F3FE1E0001DF77 /* StreamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamModel.swift; sourceTree = "<group>"; };
-		2ACFFDEA21F400100001DF77 /* VodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodModel.swift; sourceTree = "<group>"; };
+		2ACFFDE821F3FE1E0001DF77 /* StreamDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamDataModel.swift; sourceTree = "<group>"; };
+		2ACFFDEA21F400100001DF77 /* VodDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodDataModel.swift; sourceTree = "<group>"; };
 		2ACFFDEC21F401400001DF77 /* TeacherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDataModel.swift; sourceTree = "<group>"; };
 		2ACFFDEE21F403260001DF77 /* ChildDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDataModel.swift; sourceTree = "<group>"; };
 		2ACFFDF021F404B50001DF77 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
@@ -81,13 +82,14 @@
 		2ACFFDFB21F42CDD0001DF77 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		2ACFFDFD21F439430001DF77 /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
 		2ACFFE0021F43A940001DF77 /* LiveVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoTableViewCell.swift; sourceTree = "<group>"; };
+		2ACFFE0221F4D1180001DF77 /* CoredataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoredataManager.swift; sourceTree = "<group>"; };
+		2ACFFE0421F4DC8B0001DF77 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3BDECCC9A3960B1B865D0E7F /* Pods-MyParentsOnBoardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardUITests/Pods-MyParentsOnBoardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B0612BD35252E3F196C5B3 /* Pods-MyParentsOnBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1EA59B9D59C0E4172FD27B /* Pods-MyParentsOnBoardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardUITests/Pods-MyParentsOnBoardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B23AE73E21F471B20028FEA0 /* CoredataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoredataManager.swift; path = ../../../CoredataManager.swift; sourceTree = "<group>"; };
 		E4B2076164E1062EC9E20438 /* Pods-MyParentsOnBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,8 +203,8 @@
 		2ACFFDE421F101EB0001DF77 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2ACFFE0221F4D1180001DF77 /* CoredataManager.swift */,
 				2ACFFDE521F102610001DF77 /* HttpManager.swift */,
-				B23AE73E21F471B20028FEA0 /* CoredataManager.swift */,
 				2ACFFDF221F4052B0001DF77 /* ErrorManager.swift */,
 			);
 			path = Utils;
@@ -211,12 +213,13 @@
 		2ACFFDE721F3FDCE0001DF77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2ACFFDE821F3FE1E0001DF77 /* StreamModel.swift */,
-				2ACFFDEA21F400100001DF77 /* VodModel.swift */,
+				2ACFFDE821F3FE1E0001DF77 /* StreamDataModel.swift */,
+				2ACFFDEA21F400100001DF77 /* VodDataModel.swift */,
 				2ACFFDEC21F401400001DF77 /* TeacherDataModel.swift */,
 				2ACFFDEE21F403260001DF77 /* ChildDataModel.swift */,
 				2ACFFDF021F404B50001DF77 /* ErrorModel.swift */,
 				2ACFFDFB21F42CDD0001DF77 /* UserDataModel.swift */,
+				2ACFFE0421F4DC8B0001DF77 /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -471,13 +474,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ACFFDFC21F42CDD0001DF77 /* UserDataModel.swift in Sources */,
-				2ACFFDE921F3FE1E0001DF77 /* StreamModel.swift in Sources */,
-				B23AE73F21F471B20028FEA0 /* CoredataManager.swift in Sources */,
+				2ACFFE0321F4D1180001DF77 /* CoredataManager.swift in Sources */,
+				2ACFFDE921F3FE1E0001DF77 /* StreamDataModel.swift in Sources */,
 				2ACFFDAF21EE298F0001DF77 /* LoginViewController.swift in Sources */,
 				2ACFFDFE21F439430001DF77 /* LiveVideoViewController.swift in Sources */,
+				2ACFFE0521F4DC8B0001DF77 /* DataModel.swift in Sources */,
 				2ACFFDAD21EE298F0001DF77 /* AppDelegate.swift in Sources */,
 				2ACFFE0121F43A940001DF77 /* LiveVideoTableViewCell.swift in Sources */,
-				2ACFFDEB21F400100001DF77 /* VodModel.swift in Sources */,
+				2ACFFDEB21F400100001DF77 /* VodDataModel.swift in Sources */,
 				2ACFFDF321F4052B0001DF77 /* ErrorManager.swift in Sources */,
 				2ACFFDB521EE298F0001DF77 /* MyParentsOnBoard.xcdatamodeld in Sources */,
 				2ACFFDE621F102610001DF77 /* HttpManager.swift in Sources */,

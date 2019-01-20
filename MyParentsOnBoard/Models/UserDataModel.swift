@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class UserDataModel {
+public class UserDataModel: DataModel {
     
     internal var id: Int
     internal var contactDetails: ContactDetails?
