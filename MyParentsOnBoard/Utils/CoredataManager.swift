@@ -11,6 +11,9 @@ import CoreData
 
 public class CoredataManager{
     
+    private static let fileSaveError = "File save error"
+    private static let fileSaveSuccess = "File saved"
+    
     public static func insertDataModel(context: NSManagedObjectContext, dataModel: DataModel) {
         
         if let streamModel = dataModel as? StreamDataModel {
@@ -37,80 +40,83 @@ public class CoredataManager{
     public static func insertStreamData(context: NSManagedObjectContext, streamModel: StreamDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Streamdata", in: context)
-        let Urls = NSManagedObject(entity: entity!, insertInto: context)
+        let urls = NSManagedObject(entity: entity!, insertInto: context)
         
-        Urls.setValue(streamModel.id, forKey: "id")
-        Urls.setValue(streamModel.cameraUrl, forKey: "cameraUrl")
-        Urls.setValue(streamModel.cameraName, forKey: "cameraName")
-        Urls.setValue(streamModel.streamType, forKey: "streamType")
-        Urls.setValue(streamModel.thumbUrl, forKey: "thumbUrl")
+        urls.setValue(streamModel.id, forKey: "id")
+        urls.setValue(streamModel.cameraUrl, forKey: "cameraUrl")
+        urls.setValue(streamModel.cameraName, forKey: "cameraName")
+        urls.setValue(streamModel.streamType, forKey: "streamType")
+        urls.setValue(streamModel.thumbUrl, forKey: "thumbUrl")
         
         do {
             try context.save()
-            print("File Saved")
+            print("\(fileSaveSuccess)")
         } catch {
-            print("Failed saving")
+            print("\(fileSaveError)")
         }
     }
     
     public static func insertVodData(context: NSManagedObjectContext, vodmodel: VodDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "VodData", in: context)
-        let Urls = NSManagedObject(entity: entity!, insertInto: context)
+        let urls = NSManagedObject(entity: entity!, insertInto: context)
         
-        Urls.setValue(vodmodel.videoUrl, forKey: "videoUrl")
-        Urls.setValue(vodmodel.filebaseName, forKey: "filebaseName")
-        Urls.setValue(vodmodel.thumbnailUrl, forKey: "thumbnailUrl")
-        Urls.setValue(vodmodel.vodName, forKey: "vodName")
-        Urls.setValue(vodmodel.vodType, forKey: "vodType")
+        urls.setValue(vodmodel.videoUrl, forKey: "videoUrl")
+        urls.setValue(vodmodel.filebaseName, forKey: "filebaseName")
+        urls.setValue(vodmodel.thumbnailUrl, forKey: "thumbnailUrl")
+        urls.setValue(vodmodel.vodName, forKey: "vodName")
+        urls.setValue(vodmodel.vodType, forKey: "vodType")
         
         do {
             try context.save()
+            print("\(fileSaveSuccess)")
         } catch {
-            print("Failed saving")
+            print("\(fileSaveError)")
         }
     }
     
     public static func insertTeacherData(context: NSManagedObjectContext, teacherModel: TeacherDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Teachers", in: context)
-        let Urls = NSManagedObject(entity: entity!, insertInto: context)
+        let urls = NSManagedObject(entity: entity!, insertInto: context)
         
-        Urls.setValue(teacherModel.id, forKey: "teacherId")
-        Urls.setValue(teacherModel.firstName, forKey: "firstName")
-        Urls.setValue(teacherModel.lastName, forKey: "lastName")
-        Urls.setValue(teacherModel.dateOfBirth, forKey: "dateOfBirth")
-        Urls.setValue(teacherModel.email, forKey: "email")
-        Urls.setValue(teacherModel.phone, forKey: "phone")
-        Urls.setValue(teacherModel.position, forKey: "position")
-        Urls.setValue(teacherModel.workHours, forKey: "workHours")
-        Urls.setValue(teacherModel.education, forKey: "education")
-        Urls.setValue(teacherModel.certifications, forKey: "certifications")
-        Urls.setValue(teacherModel.biography, forKey: "biography")
-        Urls.setValue(teacherModel.pictureUrl, forKey: "pictureUrl")
-        Urls.setValue(teacherModel.age, forKey: "age")
+        urls.setValue(teacherModel.id, forKey: "teacherId")
+        urls.setValue(teacherModel.firstName, forKey: "firstName")
+        urls.setValue(teacherModel.lastName, forKey: "lastName")
+        urls.setValue(teacherModel.dateOfBirth, forKey: "dateOfBirth")
+        urls.setValue(teacherModel.email, forKey: "email")
+        urls.setValue(teacherModel.phone, forKey: "phone")
+        urls.setValue(teacherModel.position, forKey: "position")
+        urls.setValue(teacherModel.workHours, forKey: "workHours")
+        urls.setValue(teacherModel.education, forKey: "education")
+        urls.setValue(teacherModel.certifications, forKey: "certifications")
+        urls.setValue(teacherModel.biography, forKey: "biography")
+        urls.setValue(teacherModel.pictureUrl, forKey: "pictureUrl")
+        urls.setValue(teacherModel.age, forKey: "age")
         
         do {
             try context.save()
+            print("\(fileSaveSuccess)")
         } catch {
-            print("Failed saving")
+            print("\(fileSaveError)")
         }
     }
     
     public static func insertChildData(context: NSManagedObjectContext, childModel: ChildDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Child", in: context)
-        let Urls = NSManagedObject(entity: entity!, insertInto: context)
+        let urls = NSManagedObject(entity: entity!, insertInto: context)
         
-        Urls.setValue(childModel.childId, forKey: "childId")
-        Urls.setValue(childModel.firstName, forKey: "firstName")
-        Urls.setValue(childModel.lastName, forKey: "lastName")
-        Urls.setValue(childModel.pictureUrl, forKey: "pictureUrl")
+        urls.setValue(childModel.childId, forKey: "childId")
+        urls.setValue(childModel.firstName, forKey: "firstName")
+        urls.setValue(childModel.lastName, forKey: "lastName")
+        urls.setValue(childModel.pictureUrl, forKey: "pictureUrl")
         
         do {
             try context.save()
+            print("\(fileSaveSuccess)")
         } catch {
-            print("Failed saving")
+            print("\(fileSaveError)")
         }
     }
     

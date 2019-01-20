@@ -77,6 +77,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func getJsonFromData(response: HTTPURLResponse) {
         // Do something here
+        // Get the json data and
+        saveDataModel(dataModel: ChildDataModel(id: 1, contactDetails: nil, personalDetails: UserDataModel.PersonalDetails(firstName: "a", lastName: "b", dateOfBirth: "c", age: 2, pictureUrl: ""))
+        )
     }
     
     private func saveDataModel(dataModel: DataModel) {

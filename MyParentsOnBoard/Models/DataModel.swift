@@ -8,6 +8,6 @@
 
 import Foundation
 
-public class DataModel {
+public protocol DataModel {
     
 }
