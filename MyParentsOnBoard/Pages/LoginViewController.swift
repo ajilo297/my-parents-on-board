@@ -20,6 +20,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        // TODO: - Remove this implementation
+        HttpManager.getTeacherDetails(id: "Some ID")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

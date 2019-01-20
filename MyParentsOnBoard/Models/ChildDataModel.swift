@@ -8,16 +8,33 @@
 
 import Foundation
 
-public class ChildDataModel {
-    public let childId: Int
-    public let firstName: String
-    public let lastName: String
-    public let pictureUrl: String
+public class ChildDataModel: UserDataModel {
     
-    init(childId: Int, firstName: String, lastName: String, pictureUrl: String) {
-        self.childId = childId
-        self.firstName = firstName
-        self.lastName = lastName
-        self.pictureUrl = pictureUrl
+    override init(id childId: Int, contactDetails: ContactDetails?, personalDetails: PersonalDetails?) {
+        super.init(id: childId, contactDetails: contactDetails, personalDetails: personalDetails)
+    }
+    
+    public var childId: Int {
+        get {
+           return id
+        }
+    }
+    
+    public var firstName: String? {
+        get {
+            return personalDetails?.firstName
+        }
+    }
+    
+    public var lastName: String? {
+        get {
+            return personalDetails?.lastName
+        }
+    }
+    
+    public var pictureUrl: String? {
+        get {
+            return personalDetails?.pictureUrl
+        }
     }
 }

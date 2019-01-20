@@ -68,4 +68,13 @@ public class HttpManager {
             callback(data, response, error)
         })
     }
+    
+    public static func getTeacherDetails(id: String) {
+        guard let url = URL(string: "someUrl/\(id)") else {
+            return
+        }
+        makeGetRequest(url: url, header: nil, callback: {(data, response, error) in
+            print("\(data!)")
+        })
+    }
 }
