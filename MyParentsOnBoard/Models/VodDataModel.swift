@@ -20,14 +20,14 @@ public class VodDataModel: VideoDataModel {
     
     public init(item: Dictionary<String, Any>) {
     
-        let filebaseName = (item["filebasename"] as? String) ?? ""
-        let vodType = (item["vodType"] as? String) ?? ""
+        let filebaseNameString = (item["filebasename"] as? String) ?? ""
+        let vodTypeString = (item["vodType"] as? String) ?? ""
         let videoUrl = (item["videourl"] as? String) ?? ""
         let thumbnailUrl = (item["thumbnailurl"] as? String) ?? ""
         let videoName = (item["vodName"] as? String) ?? ""
         
-        self.filebaseName = filebaseName
-        self.vodType = vodType
+        self.filebaseName = filebaseNameString
+        self.vodType = vodTypeString
         super.init(thumbnailUrl: thumbnailUrl, videoUrl: videoUrl, videoName: videoName)
     }
 }

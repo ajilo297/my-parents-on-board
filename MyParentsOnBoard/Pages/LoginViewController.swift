@@ -39,8 +39,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         HttpManager.loginWith(emailId: emailId, password: password, callback: {
             (data, response, error) in
-            loadingDialog.dismiss(animated: true, completion: nil)
-            self.handleLoginResponse(data: data, response: response, error: error)
+            loadingDialog.dismiss(animated: true, completion: {
+                self.handleLoginResponse(data: data, response: response, error: error)
+            })
         })
     }
     
@@ -108,7 +109,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             saveDataModel(dataModel: vodModel)
         }
         
-        performSegue(withIdentifier: Constants.loginToNavigationIdentifier, sender: self)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: Constants.loginToNavigationIdentifier, sender: self)
+        }
     }
     
     private func getStreamDataList(dataDictionary: Array<Dictionary<String, String>>) -> Array<StreamDataModel> {
