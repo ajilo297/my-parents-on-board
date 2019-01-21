@@ -120,7 +120,9 @@ public class CoredataManager{
         }
     }
     
-    public static func getStreamData(context: NSManagedObjectContext){
+    public static func getStreamData(context: NSManagedObjectContext) -> Array<StreamDataModel>{
+        
+        var streamArray: Array<StreamDataModel> = []
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Streamdata")
         request.returnsObjectsAsFaults = false
@@ -128,10 +130,18 @@ public class CoredataManager{
         do {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "id") as! String)
+                let id = data.value(forKey: "id") as! String
+                let cameraUrl = data.value(forKey: "cameraUrl") as! String
+                let thumbUrl = data.value(forKey: "thumbUrl") as! String
+                let cameraName = data.value(forKey: "cameraName") as! String
+                let streamType = data.value(forKey: "streamType") as! String
+                
+                let streamModel = StreamDataModel(id: id, cameraUrl: cameraUrl, thumbUrl: thumbUrl, streamType: streamType, cameraName: cameraName)
+                streamArray.append(streamModel)
             }
         } catch {
             print("Failed")
         }
+        return streamArray
     }
 }

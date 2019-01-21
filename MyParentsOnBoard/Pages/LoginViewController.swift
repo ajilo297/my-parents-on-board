@@ -53,20 +53,55 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.showAlert(title: "Error", message: "Unknown Error")
             return
         }
-        guard  let _ = data else {
+        guard  let data = data else {
             self.showAlert(title: "Error", message: "Invalid response data")
             return
         }
         DispatchQueue.main.async {
-            self.getJsonFromData(response: response)
+            self.parseJsonFrom(data: data)
         }
     }
     
-    private func getJsonFromData(response: HTTPURLResponse) {
-        // Do something here
-        // Get the json data and
-        saveDataModel(dataModel: ChildDataModel(id: 1, contactDetails: nil, personalDetails: UserDataModel.PersonalDetails(firstName: "a", lastName: "b", dateOfBirth: "c", age: 2, pictureUrl: ""))
-        )
+    private func parseJsonFrom(data: Data) {
+        do {
+            guard let dataDictionary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Dictionary<String, Any> else {
+                return
+            }
+            getDataFromDictionary(dataDictionary: dataDictionary)
+        } catch let e as NSError {
+            print("" + e.localizedDescription)
+            return
+        }
+    }
+    
+    private func getDataFromDictionary(dataDictionary: Dictionary<String, Any>) {
+        
+        guard let streamObject = dataDictionary["nginxStreams"] as? Dictionary<String, Any> else {
+            print("Error 101")
+            return
+        }
+        
+        guard let streamArrayList = streamObject["streams"] as? Array<Dictionary<String, String>> else {
+            print("Error 102")
+            return
+        }
+        
+        let streamList: Array<StreamDataModel> = getStreamDataList(dataDictionary: streamArrayList)
+        
+        for streamModel in streamList {
+            saveDataModel(dataModel: streamModel)
+        }
+    }
+    
+    private func getStreamDataList(dataDictionary: Array<Dictionary<String, String>>) -> Array<StreamDataModel> {
+        var dataModelList: Array<StreamDataModel> = []
+        
+        for item in dataDictionary {
+            let streamModel = StreamDataModel(item: item)
+            dataModelList.append(streamModel)
+        }
+        
+        return dataModelList
     }
     
     private func saveDataModel(dataModel: DataModel) {

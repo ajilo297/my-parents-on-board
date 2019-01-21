@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DnM-ML-xWJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="jsT-0r-lcn">
+            <objects>
+                <viewController id="DnM-ML-xWJ" customClass="SplashViewController" customModule="MyParentsOnBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kQZ-Sh-QJr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Parents On Board" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-40-zsA">
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dR2-40-zsA" firstAttribute="leading" secondItem="5QI-KM-HAw" secondAttribute="leading" constant="20" id="BMh-gF-j5V"/>
+                            <constraint firstItem="dR2-40-zsA" firstAttribute="top" secondItem="5QI-KM-HAw" secondAttribute="top" constant="20" id="JjH-6F-zYm"/>
+                            <constraint firstItem="5QI-KM-HAw" firstAttribute="trailing" secondItem="dR2-40-zsA" secondAttribute="trailing" constant="20" id="eg5-XP-xCF"/>
+                            <constraint firstItem="5QI-KM-HAw" firstAttribute="bottom" secondItem="dR2-40-zsA" secondAttribute="bottom" constant="20" id="pos-ba-P4L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5QI-KM-HAw"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="splash_to_login" id="NUu-5S-9to"/>
+                        <segue destination="C7d-un-xgG" kind="show" identifier="splash_to_navigation" id="ALI-gA-Bzq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVn-ne-t7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-671"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -269,4 +302,7 @@
             <point key="canvasLocation" x="877.60000000000002" y="98.50074962518741"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ALI-gA-Bzq"/>
+    </inferredMetricsTieBreakers>
 </document>

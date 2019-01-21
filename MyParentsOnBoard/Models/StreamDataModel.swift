@@ -17,4 +17,13 @@ public class StreamDataModel: VideoDataModel {
         self.streamType = streamType
         super.init(thumbnailUrl: thumbUrl, videoUrl: cameraUrl, videoName: cameraName)
     }
+    
+    public init(item: Dictionary<String, String>) {
+        self.id = item["id"] ?? ""
+        self.streamType = item["streamtype"] ?? ""
+        let videoUrl = item["cameraurl"] ?? ""
+        let thumbnailUrl = item["thumburl"] ?? ""
+        let videoName = item["cameraName"] ?? ""
+        super.init(thumbnailUrl: thumbnailUrl, videoUrl: videoUrl, videoName: videoName)
+    }
 }

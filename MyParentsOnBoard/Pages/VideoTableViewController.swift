@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Kingfisher
 
 class VideoTableViewController: UIViewController {
@@ -23,18 +24,32 @@ class VideoTableViewController: UIViewController {
         self.videoTableView.delegate = self
         self.videoTableView.dataSource = self
         
-        videoDataList = getDummyData()
-        videoTableView.reloadData()
-        
         self.title = pageTitle ?? "Video List"
+        
+        getData()
+        videoTableView.reloadData()
     }
     
-    private func getDummyData() -> Array<StreamDataModel> {
-        var dataList: Array<StreamDataModel> = []
-        dataList.append(StreamDataModel(id: "1", cameraUrl: "", thumbUrl: "", streamType: "", cameraName: "Main Camera 1"))
-        dataList.append(StreamDataModel(id: "2", cameraUrl: "", thumbUrl: "", streamType: "", cameraName: "Main Camera 2"))
-        dataList.append(StreamDataModel(id: "2", cameraUrl: "", thumbUrl: "", streamType: "", cameraName: "Main Camera 3"))
-        return dataList
+    private func getData() {
+        guard let title = self.title else {
+            return
+        }
+        
+        guard let appDelegate = getApplicationDelegate() else {
+            return
+        }
+        
+        if title == Constants.liveVideoPageTitle {
+            videoDataList = CoredataManager.getStreamData(context: getContext(appDelegate: appDelegate))
+        }
+    }
+    
+    private func getContext(appDelegate: AppDelegate) -> NSManagedObjectContext {
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    private func getApplicationDelegate() -> AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
     }
 }
 
