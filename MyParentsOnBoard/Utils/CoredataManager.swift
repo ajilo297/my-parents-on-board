@@ -37,7 +37,7 @@ public class CoredataManager{
         }
     }
     
-    public static func insertStreamData(context: NSManagedObjectContext, streamModel: StreamDataModel){
+    private static func insertStreamData(context: NSManagedObjectContext, streamModel: StreamDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Streamdata", in: context)
         let urls = NSManagedObject(entity: entity!, insertInto: context)
@@ -56,7 +56,7 @@ public class CoredataManager{
         }
     }
     
-    public static func insertVodData(context: NSManagedObjectContext, vodmodel: VodDataModel){
+    private static func insertVodData(context: NSManagedObjectContext, vodmodel: VodDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "VodData", in: context)
         let urls = NSManagedObject(entity: entity!, insertInto: context)
@@ -75,7 +75,7 @@ public class CoredataManager{
         }
     }
     
-    public static func insertTeacherData(context: NSManagedObjectContext, teacherModel: TeacherDataModel){
+    private static func insertTeacherData(context: NSManagedObjectContext, teacherModel: TeacherDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Teachers", in: context)
         let urls = NSManagedObject(entity: entity!, insertInto: context)
@@ -102,7 +102,7 @@ public class CoredataManager{
         }
     }
     
-    public static func insertChildData(context: NSManagedObjectContext, childModel: ChildDataModel){
+    private static func insertChildData(context: NSManagedObjectContext, childModel: ChildDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Child", in: context)
         let urls = NSManagedObject(entity: entity!, insertInto: context)
@@ -143,5 +143,30 @@ public class CoredataManager{
             print("Failed")
         }
         return streamArray
+    }
+    
+    public static func getVodData(context: NSManagedObjectContext) -> Array<VodDataModel>{
+        
+        var vodArray: Array<VodDataModel> = []
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "VodData")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let filebaseName = data.value(forKey: "filebaseName") as! String
+                let videoUrl = data.value(forKey: "videoUrl") as! String
+                let thumbnailUrl = data.value(forKey: "thumbnailUrl") as! String
+                let vodName = data.value(forKey: "vodName") as! String
+                let streamType = data.value(forKey: "vodType") as! String
+                
+                let vodModel = VodDataModel(videoUrl: videoUrl, filebaseName: filebaseName, thumbnailUrl: thumbnailUrl, vodName: vodName, vodType: streamType)
+                vodArray.append(vodModel)
+            }
+        } catch {
+            print("Failed")
+        }
+        return vodArray
     }
 }

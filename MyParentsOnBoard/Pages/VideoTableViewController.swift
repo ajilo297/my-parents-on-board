@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Kingfisher
+import AVKit
 
 class VideoTableViewController: UIViewController {
 
@@ -41,6 +42,8 @@ class VideoTableViewController: UIViewController {
         
         if title == Constants.liveVideoPageTitle {
             videoDataList = CoredataManager.getStreamData(context: getContext(appDelegate: appDelegate))
+        } else if title == Constants.specialEventsPageTitle {
+            videoDataList = CoredataManager.getVodData(context: getContext(appDelegate: appDelegate))
         }
     }
     
@@ -75,5 +78,23 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
         }
     
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let videoModel = videoDataList[indexPath.row]
+        
+        guard let url = URL(string: videoModel.videoUrl) else {
+            return
+        }
+        
+        let player = AVPlayer(url: url)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        
+        self.present(playerViewController, animated: true, completion: {
+            playerViewController.player!.play()
+        })
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

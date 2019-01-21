@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         HttpManager.getTeacherDetails(id: "Some ID")
     }
     
-    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
             return true
@@ -86,11 +86,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        guard let vodObject = dataDictionary["onDemandVideos"] as? Dictionary<String, Any> else {
+            print("Error 103")
+            return
+        }
+        
+        guard let vodArrayList = vodObject["vods"] as? Array<Dictionary<String, Any>> else {
+            print("Error 104")
+            return
+        }
+        
         let streamList: Array<StreamDataModel> = getStreamDataList(dataDictionary: streamArrayList)
         
         for streamModel in streamList {
             saveDataModel(dataModel: streamModel)
         }
+        
+        let vodList: Array<VodDataModel> = getVodDataList(dataDictionary: vodArrayList)
+        
+        for vodModel in vodList {
+            saveDataModel(dataModel: vodModel)
+        }
+        
+        performSegue(withIdentifier: Constants.loginToNavigationIdentifier, sender: self)
     }
     
     private func getStreamDataList(dataDictionary: Array<Dictionary<String, String>>) -> Array<StreamDataModel> {
@@ -99,6 +117,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         for item in dataDictionary {
             let streamModel = StreamDataModel(item: item)
             dataModelList.append(streamModel)
+        }
+        
+        return dataModelList
+    }
+    
+    private func getVodDataList(dataDictionary: Array<Dictionary<String, Any>>) -> Array<VodDataModel> {
+        var dataModelList: Array<VodDataModel> = []
+        
+        for item in dataDictionary {
+            let vodModel = VodDataModel(item: item)
+            dataModelList.append(vodModel)
         }
         
         return dataModelList
