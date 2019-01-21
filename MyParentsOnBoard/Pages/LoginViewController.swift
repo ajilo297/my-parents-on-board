@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         HttpManager.getTeacherDetails(id: "Some ID")
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
             return true
@@ -35,9 +35,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func login(emailId: String, password: String) {
-        
-        performSegue(withIdentifier: Constants.loginToNavigationIdentifier, sender: self)
-        
         let loadingDialog = showLoadingAlert(in: self, title: nil, message: "Loading")
         
         HttpManager.loginWith(emailId: emailId, password: password, callback: {
@@ -60,7 +57,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.showAlert(title: "Error", message: "Invalid response data")
             return
         }
-        self.getJsonFromData(response: response)
+        DispatchQueue.main.async {
+            self.getJsonFromData(response: response)
+        }
     }
     
     private func getJsonFromData(response: HTTPURLResponse) {

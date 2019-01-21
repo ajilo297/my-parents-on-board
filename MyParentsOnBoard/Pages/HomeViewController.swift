@@ -20,11 +20,9 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.homeToVideoIdentifier {
-            if let sender = sender as? UIButton {
+        if let sender = sender as? UIButton, segue.identifier == Constants.homeToVideoIdentifier {
                 startHomeToVideoSegue(sender: sender, segue: segue)
                 return
-            }
         }
     }
     
