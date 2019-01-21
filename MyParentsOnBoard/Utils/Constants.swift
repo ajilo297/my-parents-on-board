@@ -1,0 +1,25 @@
+//
+//  Constants.swift
+//  MyParentsOnBoard
+//
+//  Created by Ajil on 21/01/19.
+//  Copyright © 2019 ATS. All rights reserved.
+//
+
+import Foundation
+
+class Constants {
+    // Segue Identifiers
+    public static let homeToVideoIdentifier: String = "home_to_live_video"
+    public static let loginToNavigationIdentifier: String = "login_to_navigation"
+    
+    // TableViewCell Reuse identifiers
+    public static let videoTableViewCellReuseIdentifier = "video_cell"
+
+    // Page titles
+    public static let liveVideoPageTitle: String = "Live Video"
+    public static let specialEventsPageTitle: String = "Special Event"
+    
+    // API URLs
+    public static let baseUrl: String = "http://app.myparentsonboard.com/mpob-cloud/app/mobile/login"
+}

@@ -10,8 +10,6 @@ import Foundation
 
 public class HttpManager {
     
-    private static let baseUrl = "http://app.myparentsonboard.com/mpob-cloud/app/mobile/login"
-    
     private static func makeGetRequest(url: URL, header: Dictionary<String, String>?, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -54,7 +52,7 @@ public class HttpManager {
     public static func loginWith(emailId: String, password: String, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let userDictionary = ["userName": "\(emailId)", "password": "\(password)"]
         
-        guard let url = URL(string: baseUrl) else {
+        guard let url = URL(string: Constants.baseUrl) else {
             callback(nil, nil, NSError(domain: ErrorManager.urlNotParsed.message , code: ErrorManager.urlNotParsed.code, userInfo: nil))
             return
         }

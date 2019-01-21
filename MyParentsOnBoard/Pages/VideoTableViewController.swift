@@ -11,9 +11,12 @@ import Kingfisher
 
 class VideoTableViewController: UIViewController {
 
+    // MARK: - Properties
     @IBOutlet public weak var videoTableView: UITableView!
     private var videoDataList: Array<VideoDataModel> = []
+    public var pageTitle: String?
     
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +25,8 @@ class VideoTableViewController: UIViewController {
         
         videoDataList = getDummyData()
         videoTableView.reloadData()
+        
+        self.title = pageTitle ?? "Video List"
     }
     
     private func getDummyData() -> Array<StreamDataModel> {
@@ -42,7 +47,7 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let videoData = videoDataList[indexPath.row]
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "live_video_cell") as? VideoTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.videoTableViewCellReuseIdentifier) as? VideoTableViewCell else {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
         }
         

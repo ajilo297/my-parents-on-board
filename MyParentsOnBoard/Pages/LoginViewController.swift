@@ -33,22 +33,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
-    // MARK: - Actions
-    @IBAction public func onLoginButtonPressed(sender: UIButton) {
-        guard let emailId = emailTextField.text else {
-            return
-        }
-        guard let password = passwordTextField.text else {
-            return
-        }
-        
-        login(emailId: emailId, password: password)
-    }
     
     private func login(emailId: String, password: String) {
         
-        performSegue(withIdentifier: "login_to_navigation", sender: self)
+        performSegue(withIdentifier: Constants.loginToNavigationIdentifier, sender: self)
         
         let loadingDialog = showLoadingAlert(in: self, title: nil, message: "Loading")
         
@@ -98,5 +86,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func showAlert(title: String?, message: String?) {
         MyParentsOnBoard.showAlertDialog(in: self, title: title, message: message)
     }
-    
+
+    // MARK: - Actions
+    @IBAction public func onLoginButtonPressed(sender: UIButton) {
+        guard let emailId = emailTextField.text else {
+            return
+        }
+        guard let password = passwordTextField.text else {
+            return
+        }
+        
+        login(emailId: emailId, password: password)
+    }
 }

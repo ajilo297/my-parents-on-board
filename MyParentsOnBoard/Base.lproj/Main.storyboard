@@ -103,6 +103,9 @@
                                 <state key="normal" title="Special Events">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSpecialEventButtonClickWithSender:" destination="pv6-si-Md4" eventType="touchUpInside" id="JsV-Ue-EYk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYS-i2-KKN">
                                 <rect key="frame" x="20" y="200" width="335" height="40"/>
@@ -170,6 +173,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Parents On Board" largeTitleDisplayMode="always" id="Ndm-hn-Cav"/>
                     <connections>
+                        <outlet property="liveVideoButton" destination="tOc-HH-vwR" id="mcu-ye-VEw"/>
+                        <outlet property="specialEventsButton" destination="AqV-gK-evR" id="Bqa-Bd-n3e"/>
                         <segue destination="F2w-6Q-3cl" kind="show" identifier="home_to_live_video" id="3lf-m1-C1T"/>
                     </connections>
                 </viewController>
@@ -189,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="live_video_cell" rowHeight="209" id="GgC-W5-Cnm" customClass="VideoTableViewCell" customModule="MyParentsOnBoard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="video_cell" rowHeight="209" id="GgC-W5-Cnm" customClass="VideoTableViewCell" customModule="MyParentsOnBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="209"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GgC-W5-Cnm" id="Y4b-Kd-kGN">
