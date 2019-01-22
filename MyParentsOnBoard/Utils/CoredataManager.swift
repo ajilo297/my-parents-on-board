@@ -159,13 +159,13 @@ public class CoredataManager{
     }
     
     public static func deleteOnLogout(context: NSManagedObjectContext) -> Bool {
-        var result = true
-        result = deleteVodData(context: context)
-        result = deleteChildData(context: context)
-        result = deleteStreamData(context: context)
-        result = deleteTeacherData(context: context)
         
-        return result;
+        let resultVod = deleteVodData(context: context)
+        let resultChild = deleteChildData(context: context)
+        let resultStream = deleteStreamData(context: context)
+        let resultTeacher = deleteTeacherData(context: context)
+        
+        return resultVod && resultChild && resultStream && resultTeacher;
     }
     
     public static func getStreamData(context: NSManagedObjectContext) -> Array<StreamDataModel>{

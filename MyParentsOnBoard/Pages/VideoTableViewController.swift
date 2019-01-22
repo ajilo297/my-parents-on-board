@@ -92,16 +92,6 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func playVideo(url: URL) {
-        let player = AVPlayer(url: url)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        
-        self.present(playerViewController, animated: true, completion: {
-            playerViewController.player?.play()
-        })
-    }
-    
     private func playQueuedVideo(at indexPath: IndexPath, videoList: Array<VideoDataModel>) {
         let index = indexPath.row
         var list = videoList
