@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A086E4521F7A96C0037F228 /* StreamDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A086E4421F7A96C0037F228 /* StreamDataTest.swift */; };
 		2A80849221F62A3400EAC3FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A80849121F62A3400EAC3FE /* Constants.swift */; };
 		2A80849421F63F3200EAC3FE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A80849321F63F3200EAC3FE /* SplashViewController.swift */; };
 		2ACFFDAD21EE298F0001DF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDAC21EE298F0001DF77 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		01A3C81CF02CA67BD49D0F2F /* Pods-MyParentsOnBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoard/Pods-MyParentsOnBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		03B2DE72120200FCA52F3757 /* Pods-MyParentsOnBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoard.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoard/Pods-MyParentsOnBoard.release.xcconfig"; sourceTree = "<group>"; };
+		2A086E4421F7A96C0037F228 /* StreamDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamDataTest.swift; sourceTree = "<group>"; };
 		2A80849121F62A3400EAC3FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A80849321F63F3200EAC3FE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2ACFFDA921EE298F0001DF77 /* MyParentsOnBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyParentsOnBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A086E4621F7AC070037F228 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A086E4421F7A96C0037F228 /* StreamDataTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2ACFFDA021EE298F0001DF77 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +191,7 @@
 		2ACFFDC321EE29910001DF77 /* MyParentsOnBoardTests */ = {
 			isa = PBXGroup;
 			children = (
+				2A086E4621F7AC070037F228 /* Models */,
 				2ACFFDC421EE29910001DF77 /* MyParentsOnBoardTests.swift */,
 				2ACFFDC621EE29910001DF77 /* Info.plist */,
 			);
@@ -509,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ACFFDC521EE29910001DF77 /* MyParentsOnBoardTests.swift in Sources */,
+				2A086E4521F7A96C0037F228 /* StreamDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
