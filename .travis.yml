@@ -4,4 +4,4 @@ addons:
   sonarqube: true
 script:
   - xcodebuild clean test -workspace MyParentsOnBoard.xcworkspace -scheme MyParentsOnBoard -destination "platform=iOS Simulator,name=iPhone 8,OS=12.1" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
-  - sonar-scanner -Dsonar.projectKey=my-parents-on-board -Dsonar.organization=ajilo297-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=cb43d3449d200855d6662c861745f2261456a189 -Dsonar.coverageReportPaths=sonarqube-generic-coverage.xml
+  - sonar-scanner -Dsonar.projectKey=my-parents-on-board -Dsonar.organization=ajilo297-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=cb43d3449d200855d6662c861745f2261456a189
