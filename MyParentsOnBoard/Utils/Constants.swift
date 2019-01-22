@@ -9,11 +9,16 @@
 import Foundation
 
 class Constants {
+    
+    // ViewController Identifiers
+    public static let logiViewControllerIdentifier: String = "LoginViewController"
+    
     // Segue Identifiers
     public static let homeToVideoIdentifier: String = "home_to_live_video"
     public static let loginToNavigationIdentifier: String = "login_to_navigation"
     public static let splashToLoginIdentifier: String = "splash_to_login"
     public static let spalshToNavigationIdentifier: String = "splash_to_navigation"
+    public static let homeToLoginIdentifier: String = "home_to_login"
     
     // TableViewCell Reuse identifiers
     public static let videoTableViewCellReuseIdentifier = "video_cell"

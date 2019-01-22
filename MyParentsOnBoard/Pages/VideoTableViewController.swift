@@ -16,6 +16,7 @@ class VideoTableViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet public weak var videoTableView: UITableView!
     private var videoDataList: Array<VideoDataModel> = []
+
     public var pageTitle: String?
     
     // MARK: - Methods
@@ -83,18 +84,60 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoModel = videoDataList[indexPath.row]
         
-        guard let url = URL(string: videoModel.videoUrl) else {
+        guard let _ = URL(string: videoModel.videoUrl) else {
             return
         }
         
+        playQueuedVideo(at: indexPath, videoList: videoDataList)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private func playVideo(url: URL) {
         let player = AVPlayer(url: url)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
         
         self.present(playerViewController, animated: true, completion: {
-            playerViewController.player!.play()
+            playerViewController.player?.play()
         })
+    }
+    
+    private func playQueuedVideo(at indexPath: IndexPath, videoList: Array<VideoDataModel>) {
+        let index = indexPath.row
+        var list = videoList
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        var i = 0;
+        
+        while i < index {
+            let video = list.remove(at: 0)
+            list.append(video)
+            i += 1
+        }
+        
+        var urlList: Array<URL> = []
+        for video in list {
+            if let url = URL(string: video.videoUrl) {
+                urlList.append(url)
+            }
+        }
+        
+        playQueuedVideo(urlList: urlList)
+    }
+    
+    private func playQueuedVideo(urlList: Array<URL>) {
+        var playerItemList: Array<AVPlayerItem> = []
+        
+        for url in urlList {
+            playerItemList.append(AVPlayerItem(url: url))
+        }
+        
+        let player = AVQueuePlayer(items: playerItemList)
+        let playerViewController = AVPlayerViewController()
+        
+        playerViewController.player = player
+        
+        self.present(playerViewController, animated: true, completion: {
+            playerViewController.player?.play()
+        })
     }
 }

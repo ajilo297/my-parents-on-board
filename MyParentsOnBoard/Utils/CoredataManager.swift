@@ -14,29 +14,7 @@ public class CoredataManager{
     private static let fileSaveError = "File save error"
     private static let fileSaveSuccess = "File saved"
     
-    public static func insertDataModel(context: NSManagedObjectContext, dataModel: DataModel) {
-        
-        if let streamModel = dataModel as? StreamDataModel {
-            insertStreamData(context: context, streamModel: streamModel)
-            return
-        }
-        
-        if let teacherModel = dataModel as? TeacherDataModel {
-            insertTeacherData(context: context, teacherModel: teacherModel)
-            return
-        }
-        
-        if let vodModel = dataModel as? VodDataModel {
-            insertVodData(context: context, vodmodel: vodModel)
-            return
-        }
-        
-        if let childModel = dataModel as? ChildDataModel {
-            insertChildData(context: context, childModel: childModel)
-            return
-        }
-    }
-    
+    // Hidden methods
     private static func insertStreamData(context: NSManagedObjectContext, streamModel: StreamDataModel){
         
         let entity = NSEntityDescription.entity(forEntityName: "Streamdata", in: context)
@@ -118,6 +96,76 @@ public class CoredataManager{
         } catch {
             print("\(fileSaveError)")
         }
+    }
+    
+    private static func deleteStreamData(context: NSManagedObjectContext) -> Bool {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Streamdata")
+        let request =  NSBatchDeleteRequest(fetchRequest: fetch)
+        return deleteData(context: context, request: request)
+    }
+    
+    private static func deleteChildData(context: NSManagedObjectContext) -> Bool {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Child")
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        return deleteData(context: context, request: request)
+    }
+    
+    private static func deleteTeacherData(context: NSManagedObjectContext) -> Bool {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Teachers")
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        return deleteData(context: context, request: request)
+    }
+    
+    private static func deleteVodData(context: NSManagedObjectContext) -> Bool {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "VodData")
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        return deleteData(context: context, request: request)
+    }
+    
+    private static func deleteData(context: NSManagedObjectContext, request: NSBatchDeleteRequest) -> Bool {
+        do {
+            try context.execute(request)
+            try context.save()
+            return true
+        } catch let e as NSError {
+            print("\(e.localizedDescription)")
+            return false;
+        }
+    }
+    
+    // MARK: - Exposed Methods
+    
+    public static func insertDataModel(context: NSManagedObjectContext, dataModel: DataModel) {
+        
+        if let streamModel = dataModel as? StreamDataModel {
+            insertStreamData(context: context, streamModel: streamModel)
+            return
+        }
+        
+        if let teacherModel = dataModel as? TeacherDataModel {
+            insertTeacherData(context: context, teacherModel: teacherModel)
+            return
+        }
+        
+        if let vodModel = dataModel as? VodDataModel {
+            insertVodData(context: context, vodmodel: vodModel)
+            return
+        }
+        
+        if let childModel = dataModel as? ChildDataModel {
+            insertChildData(context: context, childModel: childModel)
+            return
+        }
+    }
+    
+    public static func deleteOnLogout(context: NSManagedObjectContext) -> Bool {
+        var result = true
+        result = deleteVodData(context: context)
+        result = deleteChildData(context: context)
+        result = deleteStreamData(context: context)
+        result = deleteTeacherData(context: context)
+        
+        return result;
     }
     
     public static func getStreamData(context: NSManagedObjectContext) -> Array<StreamDataModel>{

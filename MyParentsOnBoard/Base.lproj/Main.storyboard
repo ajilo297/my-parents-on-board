@@ -41,12 +41,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVn-ne-t7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-671"/>
+            <point key="canvasLocation" x="86" y="99"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="MyParentsOnBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="MyParentsOnBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="98.50074962518741"/>
+            <point key="canvasLocation" x="86" y="865"/>
         </scene>
         <!--My Parents On Board-->
         <scene sceneID="HbC-ID-71v">
@@ -179,6 +179,9 @@
                                 <state key="normal" title="Sign Out">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLogoutButtonClickedWithSender:" destination="pv6-si-Md4" eventType="touchUpInside" id="tYg-1S-TDK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -207,6 +210,7 @@
                     <navigationItem key="navigationItem" title="My Parents On Board" largeTitleDisplayMode="always" id="Ndm-hn-Cav"/>
                     <connections>
                         <outlet property="liveVideoButton" destination="tOc-HH-vwR" id="mcu-ye-VEw"/>
+                        <outlet property="logoutButton" destination="DIp-KM-h6E" id="2Mr-Xx-bqE"/>
                         <outlet property="specialEventsButton" destination="AqV-gK-evR" id="Bqa-Bd-n3e"/>
                         <segue destination="F2w-6Q-3cl" kind="show" identifier="home_to_live_video" id="3lf-m1-C1T"/>
                     </connections>
@@ -303,6 +307,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ALI-gA-Bzq"/>
+        <segue reference="SFc-Hi-8Zl"/>
     </inferredMetricsTieBreakers>
 </document>
