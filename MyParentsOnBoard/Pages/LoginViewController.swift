@@ -77,36 +77,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func getDataFromDictionary(dataDictionary: Dictionary<String, Any>) {
         
-        guard let streamObject = dataDictionary["nginxStreams"] as? Dictionary<String, Any> else {
-            print("Error 101")
-            return
-        }
-        
-        guard let streamArrayList = streamObject["streams"] as? Array<Dictionary<String, String>> else {
-            print("Error 102")
-            return
-        }
-        
-        guard let vodObject = dataDictionary["onDemandVideos"] as? Dictionary<String, Any> else {
-            print("Error 103")
-            return
-        }
-        
-        guard let vodArrayList = vodObject["vods"] as? Array<Dictionary<String, Any>> else {
-            print("Error 104")
-            return
-        }
+        let streamArrayList = parseStreamData(dataDictionary: dataDictionary)
+        let vodArrayList = parseVodData(dataDictionary: dataDictionary)
+        let teacherArrayList = parseTeacherData(dataDictionary: dataDictionary)
+        let childArrayList = parseChildData(dataDictionary: dataDictionary)
         
         let streamList: Array<StreamDataModel> = getStreamDataList(dataDictionary: streamArrayList)
+        let vodList: Array<VodDataModel> = getVodDataList(dataDictionary: vodArrayList)
+        let teacherList = getTeacherDataList(dataDictionary: teacherArrayList)
+        let childList = getChildDataList(dataDictionary: childArrayList)
         
         for streamModel in streamList {
             saveDataModel(dataModel: streamModel)
         }
         
-        let vodList: Array<VodDataModel> = getVodDataList(dataDictionary: vodArrayList)
-        
         for vodModel in vodList {
             saveDataModel(dataModel: vodModel)
+        }
+        
+        for childModel in childList {
+            saveDataModel(dataModel: childModel)
+        }
+        
+        for teacherModel in teacherList {
+            saveDataModel(dataModel: teacherModel)
         }
         
         DispatchQueue.main.async {
@@ -114,6 +108,65 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    private func parseStreamData(dataDictionary: Dictionary<String, Any>) -> Array<Dictionary<String, String>>{
+        
+        guard let streamObject = dataDictionary["nginxStreams"] as? Dictionary<String, Any> else {
+            print("Error 101")
+            return []
+        }
+        
+        guard let streamArrayList = streamObject["streams"] as? Array<Dictionary<String, String>> else {
+            print("Error 102")
+            return []
+        }
+        
+        return streamArrayList
+    }
+    
+    private func parseVodData(dataDictionary: Dictionary<String, Any>) -> Array<Dictionary<String, Any>>{
+        
+        guard let vodObject = dataDictionary["onDemandVideos"] as? Dictionary<String, Any> else {
+            print("Error 103")
+            return []
+        }
+        
+        guard let vodArrayList = vodObject["vods"] as? Array<Dictionary<String, Any>> else {
+            print("Error 104")
+            return []
+        }
+        
+        return vodArrayList
+    }
+    
+    private func parseTeacherData(dataDictionary: Dictionary<String, Any>) -> Array<Dictionary<String, Any>> {
+        guard let teacherObject = dataDictionary["teachers"] as? Dictionary<String, Any> else {
+            print("Error 105")
+            return []
+        }
+        
+        guard let teacherArrayList = teacherObject["data"] as? Array<Dictionary<String, Any>> else {
+            print("Error 106")
+            return []
+        }
+        
+        return teacherArrayList
+    }
+    
+    private func parseChildData(dataDictionary: Dictionary<String, Any>) -> Array<Dictionary<String, Any>>{
+        
+        guard let childObject = dataDictionary["children"] as? Dictionary<String, Any> else {
+            print("Error 107")
+            return []
+        }
+        
+        guard let childArrayList = childObject["data"] as? Array<Dictionary<String, Any>> else {
+            print("Error 108")
+            return []
+        }
+        
+        return childArrayList
+    }
+ 
     private func getStreamDataList(dataDictionary: Array<Dictionary<String, String>>) -> Array<StreamDataModel> {
         var dataModelList: Array<StreamDataModel> = []
         
@@ -131,6 +184,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         for item in dataDictionary {
             let vodModel = VodDataModel(item: item)
             dataModelList.append(vodModel)
+        }
+        
+        return dataModelList
+    }
+    
+    private func getTeacherDataList(dataDictionary: Array<Dictionary<String, Any>>) -> Array<TeacherDataModel> {
+        var dataModelList: Array<TeacherDataModel> = []
+        
+        for item in dataDictionary {
+            let teacherModel = TeacherDataModel(item: item)
+            dataModelList.append(teacherModel)
+        }
+        
+        return dataModelList
+    }
+    
+    private func getChildDataList(dataDictionary: Array<Dictionary<String, Any>>) -> Array<ChildDataModel> {
+        var dataModelList: Array<ChildDataModel> = []
+        
+        for item in dataDictionary {
+            let childModel = ChildDataModel(item: item)
+            dataModelList.append(childModel)
         }
         
         return dataModelList

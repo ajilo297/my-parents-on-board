@@ -14,6 +14,17 @@ public class ChildDataModel: UserDataModel {
         super.init(id: childId, contactDetails: contactDetails, personalDetails: personalDetails)
     }
     
+    init(item: Dictionary<String, Any>) {
+        let childIdValue = (item["childId"] as? Int) ?? -1
+        let firstNameString = (item["firstName"] as? String) ?? ""
+        let lastNameString = (item["lastName"] as? String) ?? ""
+        let pictureUrlString = (item["pictureUrl"] as? String) ?? ""
+        
+        let personalDetailsValue = PersonalDetails(firstName: firstNameString, lastName: lastNameString, dateOfBirth: "", age: -1, pictureUrl: pictureUrlString)
+        
+        super.init(id: childIdValue, contactDetails: nil, personalDetails: personalDetailsValue)
+    }
+    
     public var childId: Int {
         get {
            return id

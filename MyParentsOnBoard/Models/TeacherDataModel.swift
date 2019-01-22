@@ -17,6 +17,29 @@ public class TeacherDataModel : UserDataModel {
         super.init(id: teacherId, contactDetails: contactDetails, personalDetails: personalDetails)
     }
     
+    init(item: Dictionary<String, Any>) {
+        let teacherIdValue = (item["teacherId"] as? Int) ?? -1
+        let firstNameString = (item["firstName"] as? String) ?? ""
+        let lastNameString = (item["lastName"] as? String) ?? ""
+        let dateOfBirthString = (item["dateOfBirth"] as? String) ?? ""
+        let emailString = (item["email"] as? String) ?? ""
+        let phoneString = (item["phone"] as? String) ?? ""
+        let positionString = (item["position"] as? String) ?? ""
+        let workHoursString = (item["workHours"] as? String) ?? ""
+        let educationString = (item["education"] as? String) ?? ""
+        let certificationString = (item["certifications"] as? String) ?? ""
+        let biographyString = (item["biography"] as? String) ?? ""
+        let pictureUrlString = (item["pictureUrl"] as? String) ?? ""
+        let ageValue = (item["age"] as? Int) ?? -1
+        
+        let contactDetailsValue = ContactDetails(email: emailString, phone: phoneString, pictureUrl: pictureUrlString)
+        let personalDetailsValue = PersonalDetails(firstName: firstNameString, lastName: lastNameString, dateOfBirth: dateOfBirthString, age: ageValue, pictureUrl: pictureUrlString)
+        let professionalDetailsValue = ProfessionalDetails(position: positionString, workHours: workHoursString, education: educationString, certifications: certificationString, biography: biographyString)
+        
+        self.professionalDetails = professionalDetailsValue
+        super.init(id: teacherIdValue, contactDetails: contactDetailsValue, personalDetails: personalDetailsValue)
+    }
+    
     public var firstName: String? {
         get {
             return personalDetails?.firstName
