@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faB-ZG-adq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816.8" y="98.50074962518741"/>
+            <point key="canvasLocation" x="1708" y="99"/>
         </scene>
         <!--Live Video-->
         <scene sceneID="64c-CY-onc">
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMP-a4-nBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2748" y="98.50074962518741"/>
+            <point key="canvasLocation" x="2551" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TM6-wU-jEe">
@@ -304,6 +304,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDP-KL-gIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="98.50074962518741"/>
+        </scene>
+        <!--Video Player View Controller-->
+        <scene sceneID="6h0-FV-eMt">
+            <objects>
+                <viewController storyboardIdentifier="VideoPlayerViewController" id="ON0-b7-gEi" customClass="VideoPlayerViewController" customModule="MyParentsOnBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5sV-ID-Glv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNE-Zl-KJU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="hNE-Zl-KJU" firstAttribute="trailing" secondItem="Aal-IU-Boh" secondAttribute="trailing" id="7XL-Tq-1p1"/>
+                            <constraint firstItem="hNE-Zl-KJU" firstAttribute="leading" secondItem="Aal-IU-Boh" secondAttribute="leading" id="K20-nU-10B"/>
+                            <constraint firstItem="hNE-Zl-KJU" firstAttribute="top" secondItem="Aal-IU-Boh" secondAttribute="top" id="LkW-wd-Koz"/>
+                            <constraint firstItem="Aal-IU-Boh" firstAttribute="bottom" secondItem="hNE-Zl-KJU" secondAttribute="bottom" id="j5c-ml-eSZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Aal-IU-Boh"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gWi-pC-aKV" appends="YES" id="fpF-KW-sHu"/>
+                            <outletCollection property="gestureRecognizers" destination="TTH-94-wrX" appends="YES" id="rm5-UF-ceK"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="videoView" destination="hNE-Zl-KJU" id="IoC-of-x4c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knR-qW-3VD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="gWi-pC-aKV">
+                    <connections>
+                        <action selector="handleSwipe:" destination="ON0-b7-gEi" id="HoE-ff-qw3"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="TTH-94-wrX">
+                    <connections>
+                        <action selector="handleSwipe:" destination="ON0-b7-gEi" id="xfo-mp-TdP"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3502" y="99"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

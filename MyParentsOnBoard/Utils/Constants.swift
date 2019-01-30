@@ -12,6 +12,7 @@ class Constants {
     
     // ViewController Identifiers
     public static let logiViewControllerIdentifier: String = "LoginViewController"
+    public static let videoPlayerViewControllerIdentifier: String = "VideoPlayerViewController"
     
     // Segue Identifiers
     public static let homeToVideoIdentifier: String = "home_to_live_video"

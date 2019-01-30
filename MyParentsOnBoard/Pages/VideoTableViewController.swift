@@ -16,6 +16,7 @@ class VideoTableViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet public weak var videoTableView: UITableView!
     private var videoDataList: Array<VideoDataModel> = []
+    private var currentIndex: Int!
 
     public var pageTitle: String?
     
@@ -84,21 +85,21 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoModel = videoDataList[indexPath.row]
         
+        currentIndex = indexPath.row
+        
         guard let _ = URL(string: videoModel.videoUrl) else {
             return
         }
         
-        playQueuedVideo(at: indexPath, videoList: videoDataList)
+        playVideo(index: currentIndex)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func playQueuedVideo(at indexPath: IndexPath, videoList: Array<VideoDataModel>) {
-        let index = indexPath.row
-        var list = videoList
-        
+    private func arrangeVideoQueue(selectedIndex: Int) -> [URL] {
+        var list = videoDataList
         var i = 0;
         
-        while i < index {
+        while i < selectedIndex {
             let video = list.remove(at: 0)
             list.append(video)
             i += 1
@@ -111,23 +112,19 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
             }
         }
         
-        playQueuedVideo(urlList: urlList)
+        return urlList
     }
     
-    private func playQueuedVideo(urlList: Array<URL>) {
-        var playerItemList: Array<AVPlayerItem> = []
+    private func playVideo(index: Int) {
+        let urlList = arrangeVideoQueue(selectedIndex: index)
         
-        for url in urlList {
-            playerItemList.append(AVPlayerItem(url: url))
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: Constants.videoPlayerViewControllerIdentifier) as? VideoPlayerViewController else {
+            print("Cannot instantiate Video player")
+            return
         }
         
-        let player = AVQueuePlayer(items: playerItemList)
-        let playerViewController = AVPlayerViewController()
-        
-        playerViewController.player = player
-        
-        self.present(playerViewController, animated: true, completion: {
-            playerViewController.player?.play()
-        })
+        vc.videoUrls = urlList
+        self.show(vc, sender: self)
     }
 }
