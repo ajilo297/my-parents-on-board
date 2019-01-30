@@ -11,30 +11,37 @@ import AVKit
 
 class VideoPlayerViewController: UIViewController {
     
-    public var videoUrls: [URL]!
+    public var videoModels: [VideoDataModel]!
     private var currentIndex: Int = 0
     
-    let smallVideoPlayerViewController = AVPlayerViewController()
+    let playerViewController = AVPlayerViewController()
     
     @IBOutlet weak var videoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallVideoPlayerViewController.showsPlaybackControls = true
+        playerViewController.showsPlaybackControls = true
         play()
     }
     
     private func play() {
-        smallVideoPlayerViewController.player?.pause()
-        smallVideoPlayerViewController.player = getPlayer()
+        
+        let videoModel = videoModels[currentIndex]
+        self.title = videoModel.videoName
+        
+        playerViewController.player?.pause()
+        playerViewController.player = getPlayer()
         addPlayerToVideoView()
-        smallVideoPlayerViewController.view.frame = videoView.bounds
-        smallVideoPlayerViewController.player?.play()
+        playerViewController.view.frame = videoView.bounds
+        playerViewController.player?.play()
     }
     
-    private func getPlayer() -> AVPlayer {
-        return AVPlayer(url: videoUrls[currentIndex])
+    private func getPlayer() -> AVPlayer? {
+        guard let url = URL(string: videoModels[currentIndex].videoUrl) else {
+            return nil
+        }
+        return AVPlayer(url: url)
     }
     
     private func addPlayerToVideoView() {
@@ -44,15 +51,15 @@ class VideoPlayerViewController: UIViewController {
         } else {
             print("No subview found with tag")
         }
-        let view = smallVideoPlayerViewController.view!
+        let view = playerViewController.view!
         view.tag = 100
         videoView.addSubview(view)
         
-        smallVideoPlayerViewController.player?.play()
+        playerViewController.player?.play()
     }
     
     private func playNext() {
-        if currentIndex == videoUrls.count - 1 {
+        if currentIndex == videoModels.count - 1 {
             currentIndex = 0
         } else {
             currentIndex += 1
@@ -61,7 +68,7 @@ class VideoPlayerViewController: UIViewController {
     
     private func playPrevious() {
         if currentIndex == 0 {
-            currentIndex = videoUrls.count - 1
+            currentIndex = videoModels.count - 1
         } else {
             currentIndex -= 1
         }

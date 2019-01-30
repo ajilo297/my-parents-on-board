@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Kingfisher
 import AVKit
+import NYT360Video
 
 class VideoTableViewController: UIViewController {
 
@@ -83,19 +84,40 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let videoModel = videoDataList[indexPath.row]
-        
         currentIndex = indexPath.row
+        
+        let videoModel = videoDataList[currentIndex]
         
         guard let _ = URL(string: videoModel.videoUrl) else {
             return
         }
         
-        playVideo(index: currentIndex)
+        if let vod = videoModel as? VodDataModel {
+            if vod.vodType == "360" {
+                loadVideoTo360Player(video: vod)
+            } else {
+                playVideo(index: currentIndex)
+            }
+        } else {
+            playVideo(index: currentIndex)
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func arrangeVideoQueue(selectedIndex: Int) -> [URL] {
+    public func loadVideoTo360Player(video: VideoDataModel) {
+        guard let videoUrl = URL(string: video.videoUrl) else {
+            return
+        }
+        let player = AVPlayer(url: videoUrl)
+        let motionManager: NYT360MotionManager = NYT360MotionManager.shared()
+        let vc = NYT360ViewController(avPlayer: player, motionManager: motionManager)
+        vc.title = video.videoName
+        self.show(vc, sender: self)
+        vc.play()
+    }
+    
+    private func arrangeVideoQueue(selectedIndex: Int) -> [VideoDataModel] {
         var list = videoDataList
         var i = 0;
         
@@ -105,18 +127,27 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
             i += 1
         }
         
-        var urlList: Array<URL> = []
+        var videoList: Array<VideoDataModel> = []
         for video in list {
-            if let url = URL(string: video.videoUrl) {
-                urlList.append(url)
+            videoList.append(video)
+        }
+        
+        var normalVideoList: [VideoDataModel] = []
+        for video in videoList {
+            if let vod = video as? VodDataModel {
+                if vod.vodType == "Normal" {
+                    normalVideoList.append(vod)
+                }
+            } else {
+                normalVideoList.append(video)
             }
         }
         
-        return urlList
+        return normalVideoList
     }
     
     private func playVideo(index: Int) {
-        let urlList = arrangeVideoQueue(selectedIndex: index)
+        let videoList = arrangeVideoQueue(selectedIndex: index)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: Constants.videoPlayerViewControllerIdentifier) as? VideoPlayerViewController else {
@@ -124,7 +155,7 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
             return
         }
         
-        vc.videoUrls = urlList
+        vc.videoModels = videoList
         self.show(vc, sender: self)
     }
 }

@@ -18,19 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Parents On Board" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-40-zsA">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashImage" translatesAutoresizingMaskIntoConstraints="NO" id="Y9g-zP-A8W">
+                                <rect key="frame" x="0.0" y="271.5" width="375" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y9g-zP-A8W" secondAttribute="height" multiplier="803:265" id="DuE-1R-zC3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dR2-40-zsA" firstAttribute="leading" secondItem="5QI-KM-HAw" secondAttribute="leading" constant="20" id="BMh-gF-j5V"/>
-                            <constraint firstItem="dR2-40-zsA" firstAttribute="top" secondItem="5QI-KM-HAw" secondAttribute="top" constant="20" id="JjH-6F-zYm"/>
-                            <constraint firstItem="5QI-KM-HAw" firstAttribute="trailing" secondItem="dR2-40-zsA" secondAttribute="trailing" constant="20" id="eg5-XP-xCF"/>
-                            <constraint firstItem="5QI-KM-HAw" firstAttribute="bottom" secondItem="dR2-40-zsA" secondAttribute="bottom" constant="20" id="pos-ba-P4L"/>
+                            <constraint firstItem="Y9g-zP-A8W" firstAttribute="centerX" secondItem="kQZ-Sh-QJr" secondAttribute="centerX" id="3Tk-7O-3qO"/>
+                            <constraint firstItem="Y9g-zP-A8W" firstAttribute="leading" secondItem="kQZ-Sh-QJr" secondAttribute="leading" id="G2e-fw-8b1"/>
+                            <constraint firstItem="Y9g-zP-A8W" firstAttribute="centerY" secondItem="kQZ-Sh-QJr" secondAttribute="centerY" id="N8g-Mx-LUM"/>
+                            <constraint firstAttribute="trailing" secondItem="Y9g-zP-A8W" secondAttribute="trailing" id="PzM-yW-jat"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5QI-KM-HAw"/>
                     </view>
@@ -351,7 +351,10 @@
             <point key="canvasLocation" x="3502" y="99"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SplashImage" width="803.280029296875" height="265"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SFc-Hi-8Zl"/>
+        <segue reference="ALI-gA-Bzq"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,7 @@ public class CoredataManager{
         
         do {
             try context.save()
-            print("\(fileSaveSuccess): \(streamModel.id)")
+
         } catch {
             print("\(fileSaveError)")
         }
@@ -47,7 +47,6 @@ public class CoredataManager{
         
         do {
             try context.save()
-            print("\(fileSaveSuccess): \(vodmodel.filebaseName)")
         } catch {
             print("\(fileSaveError)")
         }
@@ -74,7 +73,6 @@ public class CoredataManager{
         
         do {
             try context.save()
-            print("\(fileSaveSuccess): \(teacherModel.id)")
         } catch {
             print("\(fileSaveError)")
         }
@@ -92,7 +90,6 @@ public class CoredataManager{
         
         do {
             try context.save()
-            print("\(fileSaveSuccess): \(childModel.childId)")
         } catch {
             print("\(fileSaveError)")
         }

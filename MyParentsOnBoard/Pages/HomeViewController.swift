@@ -60,8 +60,7 @@ class HomeViewController: UIViewController {
             return
         }
         
-        let result = CoredataManager.deleteOnLogout(context: appDelegate.persistentContainer.viewContext)
-        print("LOGOUT DATA DELETE RESULT: \(result)")
+        let _ = CoredataManager.deleteOnLogout(context: appDelegate.persistentContainer.viewContext)
         
         if let controller = self.navigationController {
             controller.popViewController(animated: true)

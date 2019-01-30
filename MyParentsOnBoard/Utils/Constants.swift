@@ -30,4 +30,20 @@ class Constants {
     
     // API URLs
     public static let baseUrl: String = "http://app.myparentsonboard.com/mpob-cloud/app/mobile/login"
+    
+    public static func currentTime() -> String {
+        
+        let calendar = Calendar.current
+        let date = Date()
+        let components: Set<Calendar.Component> = [
+            Calendar.Component.hour,
+            Calendar.Component.minute,
+            Calendar.Component.second,
+            Calendar.Component.nanosecond
+        ]
+        
+        let dateComponents = calendar.dateComponents(components, from: date)
+        
+        return "\(dateComponents.hour!):\(dateComponents.minute!):\(dateComponents.second!):\(dateComponents.nanosecond!):"
+    }
 }

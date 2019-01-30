@@ -25,6 +25,7 @@ public class HttpManager {
     }
     
     private static func makePostRequest(url: URL, header: Dictionary<String, String>?, body: Data, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         if let header = header {

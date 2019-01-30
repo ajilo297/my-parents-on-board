@@ -14,7 +14,6 @@
 		2ACFFDAF21EE298F0001DF77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDAE21EE298F0001DF77 /* LoginViewController.swift */; };
 		2ACFFDB221EE298F0001DF77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDB021EE298F0001DF77 /* Main.storyboard */; };
 		2ACFFDB521EE298F0001DF77 /* MyParentsOnBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDB321EE298F0001DF77 /* MyParentsOnBoard.xcdatamodeld */; };
-		2ACFFDB721EE29910001DF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDB621EE29910001DF77 /* Assets.xcassets */; };
 		2ACFFDBA21EE29910001DF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACFFDB821EE29910001DF77 /* LaunchScreen.storyboard */; };
 		2ACFFDC521EE29910001DF77 /* MyParentsOnBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDC421EE29910001DF77 /* MyParentsOnBoardTests.swift */; };
 		2ACFFDD021EE29910001DF77 /* MyParentsOnBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFDCF21EE29910001DF77 /* MyParentsOnBoardUITests.swift */; };
@@ -36,6 +35,7 @@
 		2ACFFE0721F4E8D40001DF77 /* VideoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACFFE0621F4E8D40001DF77 /* VideoDataModel.swift */; };
 		2B21A8CFB3C6A40E10E6C8DD /* Pods_MyParentsOnBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A57F2CC1A9D6483F11B2F21 /* Pods_MyParentsOnBoard.framework */; };
 		8480F83422008F6B00D69C71 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480F83322008F6B00D69C71 /* VideoPlayerViewController.swift */; };
+		84C891502202280B001289C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C8914F2202280B001289C5 /* Assets.xcassets */; };
 		C5BC9E8E8EA7EC7CBA8B6588 /* Pods_MyParentsOnBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */; };
 		D237B9FA29877087D6B0E584 /* Pods_MyParentsOnBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */; };
 /* End PBXBuildFile section */
@@ -68,7 +68,6 @@
 		2ACFFDAE21EE298F0001DF77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2ACFFDB121EE298F0001DF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2ACFFDB421EE298F0001DF77 /* MyParentsOnBoard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyParentsOnBoard.xcdatamodel; sourceTree = "<group>"; };
-		2ACFFDB621EE29910001DF77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ACFFDB921EE29910001DF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ACFFDBB21EE29910001DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACFFDC021EE29910001DF77 /* MyParentsOnBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyParentsOnBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +97,7 @@
 		73B0612BD35252E3F196C5B3 /* Pods-MyParentsOnBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		74E896B7217F4C894261C441 /* Pods_MyParentsOnBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8480F83322008F6B00D69C71 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		84C8914F2202280B001289C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B1EA59B9D59C0E4172FD27B /* Pods-MyParentsOnBoardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardUITests/Pods-MyParentsOnBoardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96ADEC8820075DB9B8CAA7BB /* Pods_MyParentsOnBoardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyParentsOnBoardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B2076164E1062EC9E20438 /* Pods-MyParentsOnBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyParentsOnBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyParentsOnBoardTests/Pods-MyParentsOnBoardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,13 +176,13 @@
 		2ACFFDAB21EE298F0001DF77 /* MyParentsOnBoard */ = {
 			isa = PBXGroup;
 			children = (
+				84C8914F2202280B001289C5 /* Assets.xcassets */,
 				2ACFFDFF21F43A710001DF77 /* Views */,
 				2ACFFDE721F3FDCE0001DF77 /* Models */,
 				2ACFFDE421F101EB0001DF77 /* Utils */,
 				2ACFFDE321F101AE0001DF77 /* Pages */,
 				2ACFFDAC21EE298F0001DF77 /* AppDelegate.swift */,
 				2ACFFDB021EE298F0001DF77 /* Main.storyboard */,
-				2ACFFDB621EE29910001DF77 /* Assets.xcassets */,
 				2ACFFDB821EE29910001DF77 /* LaunchScreen.storyboard */,
 				2ACFFDBB21EE29910001DF77 /* Info.plist */,
 				2ACFFDB321EE298F0001DF77 /* MyParentsOnBoard.xcdatamodeld */,
@@ -377,10 +377,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ACFFDBA21EE29910001DF77 /* LaunchScreen.storyboard in Resources */,
-				2ACFFDB721EE29910001DF77 /* Assets.xcassets in Resources */,
 				2ACFFDE021EE32C80001DF77 /* .travis.yml in Resources */,
 				2ACFFDE221EE4F410001DF77 /* sonar-project.properties in Resources */,
 				2ACFFDB221EE298F0001DF77 /* Main.storyboard in Resources */,
+				84C891502202280B001289C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,10 +463,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyParentsOnBoard/Pods-MyParentsOnBoard-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NYT360Video/NYT360Video.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYT360Video.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

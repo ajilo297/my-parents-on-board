@@ -36,13 +36,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func login(emailId: String, password: String) {
         let loadingDialog = showLoadingAlert(in: self, title: nil, message: "Loading")
-        
+        print("LOGIN REQUEST: \(Constants.currentTime())")
         HttpManager.loginWith(emailId: emailId, password: password, callback: {
             (data, response, error) in
+            print("LOGIN RESPONSE: \(Constants.currentTime())")
+            self.dismissLoadingDialog(loadingDialog, data: data, response: response, error: error)
+        })
+    }
+    
+    private func dismissLoadingDialog(_ loadingDialog: UIAlertController, data: Data?, response: URLResponse?, error: Error?) {
+        DispatchQueue.main.async {
             loadingDialog.dismiss(animated: true, completion: {
                 self.handleLoginResponse(data: data, response: response, error: error)
             })
-        })
+        }
     }
     
     private func handleLoginResponse(data: Data?, response: URLResponse?, error: Error?) {
@@ -64,13 +71,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func parseJsonFrom(data: Data) {
+        print("JSON PARSE INITIALISING REQUEST: \(Constants.currentTime())")
         do {
             guard let dataDictionary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Dictionary<String, Any> else {
                 return
             }
             getDataFromDictionary(dataDictionary: dataDictionary)
-        } catch let e as NSError {
-            print("" + e.localizedDescription)
+        } catch _ as NSError {
             return
         }
     }
@@ -87,6 +94,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let teacherList = getTeacherDataList(dataDictionary: teacherArrayList)
         let childList = getChildDataList(dataDictionary: childArrayList)
         
+        print("CORE DATA SAVE STARTED: \(Constants.currentTime())")
+        
         for streamModel in streamList {
             saveDataModel(dataModel: streamModel)
         }
@@ -102,6 +111,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         for teacherModel in teacherList {
             saveDataModel(dataModel: teacherModel)
         }
+        
+        print("CORE DATA SAVE COMPLETED: \(Constants.currentTime())")
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: Constants.loginToNavigationIdentifier, sender: self)

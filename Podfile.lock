@@ -1,16 +1,20 @@
 PODS:
   - Kingfisher (5.1.0)
+  - NYT360Video (1.1.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 5.0)
+  - NYT360Video
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kingfisher
+    - NYT360Video
 
 SPEC CHECKSUMS:
   Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
+  NYT360Video: f87461b00aa3924f5039e01fc5321a82b121b242
 
-PODFILE CHECKSUM: 68243b665d0f238e57181bc3a48525ffc26f364a
+PODFILE CHECKSUM: 8835270c46fe83539b03d7197b70277df5072379
 
 COCOAPODS: 1.5.3
