@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-class VideoPlayerViewController: UIViewController {
+class VideoPlayerViewController: BaseVideoPlayer {
     
     public var videoModels: [VideoDataModel]!
     private var currentIndex: Int = 0
@@ -20,7 +20,6 @@ class VideoPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         playerViewController.showsPlaybackControls = true
         play()
     }
@@ -75,6 +74,9 @@ class VideoPlayerViewController: UIViewController {
     }
     
     @IBAction func handleSwipe(_ sender: UISwipeGestureRecognizer) {
+        if videoModels.count <= 1 {
+            return
+        }
         if sender.direction == .left {
             playNext()
         } else if sender.direction == .right {

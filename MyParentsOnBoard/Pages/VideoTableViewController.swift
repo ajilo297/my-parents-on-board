@@ -29,6 +29,21 @@ class VideoTableViewController: UIViewController {
         self.videoTableView.dataSource = self
         
         self.title = pageTitle ?? "Video List"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = pageTitle ?? "Video List"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.title = pageTitle ?? "Video List"
+        
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.default
+        nav?.tintColor = UIColor.blue
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         getData()
         videoTableView.reloadData()
@@ -111,7 +126,7 @@ extension VideoTableViewController: UITableViewDelegate, UITableViewDataSource  
         }
         let player = AVPlayer(url: videoUrl)
         let motionManager: NYT360MotionManager = NYT360MotionManager.shared()
-        let vc = NYT360ViewController(avPlayer: player, motionManager: motionManager)
+        let vc = ThreeSixtyPlayerViewController(avPlayer: player, motionManager: motionManager)
         vc.title = video.videoName
         self.show(vc, sender: self)
         vc.play()
